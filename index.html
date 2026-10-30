@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drawn In</title>
+<meta name="description" content="A study of what highly interactive websites earn for the companies that build them, and what they take from the people who use them.">
+<meta name="theme-color" content="#080b10">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Drawn In">
+<meta property="og:title" content="Drawn In">
+<meta property="og:description" content="A study of what highly interactive websites earn for the companies that build them, and what they take from the people who use them.">
+<meta property="og:url" content="https://drawn-in.vercel.app/">
+<meta property="og:image" content="https://drawn-in.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The words Drawn in, with white and red 3D tiles pulled toward the cursor and a live event log.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+<canvas class="gl" data-gl aria-hidden="true"></canvas>
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="nav">
+  <a class="wordmark" href="#top">Drawn in<span class="rec-dot" aria-hidden="true"></span></a>
+  <p class="nav-chapter mono" aria-live="off"><span data-nav-index>00</span> <span data-nav-title>Start</span></p>
+  <div class="nav-actions">
+    <p class="session mono" title="Time on this page"><span class="session-label">Session</span> <span data-session>00:00:00</span></p>
+    <button class="toggle mono" data-calm aria-pressed="false"><span class="toggle-box" aria-hidden="true"></span>Reduce motion</button>
+  </div>
+</header>
+
+<!-- the page logs you in plain sight; the reveal explains it -->
+<aside class="log mono" data-log aria-hidden="true"><p class="log-head">Event log</p><ol data-log-list></ol></aside>
+
+<main id="top">
+
+  <!-- ============ PART I: inside the screen. One fixed canvas, sticky scenes. ============ -->
+
+  <section class="scene scene-hero" id="hero" data-scene="hero" data-chapter="00" data-title="Start" style="--len:230vh">
+    <div class="sticky">
+      <h1 class="hero-title" aria-label="Drawn in"><span>Drawn</span><span>in</span></h1>
+      <div class="hero-foot">
+        <p class="hero-statement" data-split="now">What highly interactive websites earn for the companies that build them, and what they take from the people who use them.</p>
+        <p class="hero-hint mono" data-touch="Drag a finger across the screen · tap to let go">Move your cursor · click to let go</p>
+      </div>
+      <p class="scroll-cue mono">Scroll <span class="cue-bar"></span></p>
+    </div>
+  </section>
+
+  <section class="scene scene-flash" id="ch-flash" data-scene="flash" data-chapter="01" data-title="Fifty milliseconds" style="--len:280vh">
+    <div class="sticky">
+      <div class="copy">
+        <p class="kicker mono"><span class="k-num">01</span> First impressions</p>
+        <h2 class="display" data-split>Fifty milliseconds</h2>
+        <p class="lede">Before you read a word, you have already decided whether a site is any good.</p>
+        <p>The screen will flash two web pages, one after the other, each for a twentieth of a second. Then pick the one you would trust with your card number.</p>
+        <div class="flash-ui" aria-live="polite">
+          <div class="flash-ready">
+            <button class="btn" data-flash-start><span class="btn-dot"></span>Flash two pages</button>
+          </div>
+          <div class="flash-choose" hidden>
+            <p class="toy-q">Which would you trust with your card number?</p>
+            <div class="row">
+              <button class="btn" data-flash-pick="a">The first</button>
+              <button class="btn" data-flash-pick="b">The second</button>
+            </div>
+          </div>
+          <div class="flash-done" hidden>
+            <p class="toy-result" data-flash-result></p>
+            <button class="link mono" data-flash-again>Flash again</button>
+          </div>
+        </div>
+        <p class="aside mono">Aside · In 2004, office workers stayed on one screen for about two and a half minutes before switching to another. The latest measurement is closer to 47 seconds.</p>
+      </div>
+      <p class="scene-tag mono">Push the tiles · the screen stays put</p>
+    </div>
+  </section>
+
+  <section class="scene scene-interlude" data-scene="interlude" data-chapter="01" data-title="Still counting" style="--len:170vh">
+    <div class="sticky">
+      <p class="interlude-big"><span data-live="time">00:00</span></p>
+      <p class="interlude-small mono">On this page so far, and counting</p>
+      <p class="scene-tag mono">They followed you down the page</p>
+    </div>
+  </section>
+
+  <section class="scene scene-build" id="ch-build" data-scene="build" data-chapter="02" data-title="Labour leads to love" style="--len:300vh">
+    <div class="sticky">
+      <div class="copy">
+        <p class="kicker mono"><span class="k-num">02</span> The IKEA effect</p>
+        <h2 class="display" data-split>Labour leads to love</h2>
+        <p class="lede">The fastest way to make someone value a thing is to let them make it.</p>
+        <p>Grab the five floating pieces and drop them into the frame to build an app icon. Then put a price on it.</p>
+        <p class="mono small build-count"><span data-build-count>0</span> / 5 placed · <button class="link mono" data-build-auto>Place them for me</button></p>
+        <div class="build-price" hidden>
+          <label class="price-row">
+            <span class="mono small">Your icon is worth</span>
+            <input type="range" min="0" max="20" step="0.5" value="5" data-price="own">
+            <output class="price mono" data-price-out="own">$5.00</output>
+          </label>
+          <label class="price-row">
+            <span class="mono small">The same icon, built by someone else</span>
+            <input type="range" min="0" max="20" step="0.5" value="5" data-price="other">
+            <output class="price mono" data-price-out="other">$5.00</output>
+          </label>
+          <p class="toy-result" data-build-result></p>
+        </div>
+      </div>
+      <p class="scene-tag mono">Drag in 3D · the frame snaps</p>
+    </div>
+  </section>
+
+  <section class="scene scene-interlude" data-scene="interlude" data-chapter="02" data-title="Still counting" style="--len:170vh">
+    <div class="sticky">
+      <p class="interlude-big"><span data-live="captures">0</span></p>
+      <p class="interlude-small mono">Times the tiles came to you</p>
+      <p class="scene-tag mono">Still here</p>
+    </div>
+  </section>
+
+  <section class="scene scene-pull" id="ch-pull" data-scene="feed" data-chapter="03" data-title="One more pull" style="--len:280vh">
+    <div class="sticky">
+      <div class="copy">
+        <p class="kicker mono"><span class="k-num">03</span> Variable reward</p>
+        <h2 class="display" data-split>One more pull</h2>
+        <p class="lede">A reward you can predict gets boring. A reward you can't predict gets checked.</p>
+        <p>Pull the feed down to refresh it. Most pulls bring nothing much. Some bring something good, and the red badges waiting beside the phone come running. Scroll inside it as far as you like; it does not end.</p>
+        <p class="mono small dim">Pulls <span data-pulls>0</span> · Good ones <span data-jackpots>0</span> · Posts seen <span data-seen>0</span></p>
+      </div>
+      <div class="phone-wrap" id="pull-toy">
+        <div class="phone" data-phone>
+          <div class="phone-top mono"><span>9:41</span><span class="phone-pill"></span><span>●●●</span></div>
+          <div class="phone-scroll" data-feed tabindex="0" aria-label="An endless feed. Pull down to refresh.">
+            <div class="pull-hint mono" data-pull-hint><span class="spinner"></span><span data-pull-text>Pull to refresh</span></div>
+            <div class="feed" data-feed-list></div>
+          </div>
+        </div>
+        <button class="btn" data-pull-btn><span class="btn-dot"></span>Refresh</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE GATE: a button you have to press, with a countdown that presses it for you -->
+  <section class="scene scene-gate" id="gate" data-scene="gate" data-chapter="03" data-title="End of Part I">
+    <div class="gate-inner">
+      <p class="kicker mono">End of Part I</p>
+      <h2 class="display" data-split>Ready for the next part?</h2>
+      <div class="gate-row">
+        <button class="gate-btn" data-continue>
+          <span class="gate-ring"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="17"/><circle class="ring-fg" cx="20" cy="20" r="17"/></svg><span data-gate-n>5</span></span>
+          <span class="gate-label">Continue</span>
+          <span class="gate-arrow" aria-hidden="true">&rarr;</span>
+        </button>
+        <button class="link mono" data-gate-stay>Wait, I'm not done</button>
+      </div>
+      <p class="mono small dim gate-note" data-gate-note>Nothing below this point until you continue</p>
+    </div>
+  </section>
+
+  <div class="curtain" data-curtain aria-hidden="true">
+    <p class="curtain-rec mono"><span class="rec-dot on"></span> <span data-curtain-line>Recording stopped</span></p>
+    <h2 class="curtain-title">See? You're drawn in.</h2>
+  </div>
+
+  <div class="after-gate" id="after-gate" hidden>
+  <!-- ============ REVEAL ============ -->
+  <section class="reveal" id="reveal" data-scene="off" data-chapter="04" data-title="See?">
+    <div class="reveal-head">
+      <p class="kicker mono reveal-kicker"><span class="rec-dot on"></span> Recording stopped</p>
+      <h2 class="reveal-title">See? You're drawn in.</h2>
+      <p class="reveal-sub">Everything before that button was built to do this. The tiles, the flash, the build, the feed, the countdown. This is what the page measured while you played. A real site would send it to a company. This one kept it in your browser and forgets it when you close the tab.</p>
+    </div>
+
+    <div class="report">
+      <div class="report-grid">
+        <div class="stat"><p class="stat-k mono">Time in Part I</p><p class="stat-v" data-r="time">00:00</p></div>
+        <div class="stat"><p class="stat-k mono">Cursor travel</p><p class="stat-v" data-r="dist">0 m</p></div>
+        <div class="stat"><p class="stat-k mono">Tiles drawn to you</p><p class="stat-v" data-r="captures">0</p></div>
+        <div class="stat"><p class="stat-k mono">Flash test decided in</p><p class="stat-v" data-r="flash">skipped</p></div>
+        <div class="stat"><p class="stat-k mono">Your icon vs theirs</p><p class="stat-v" data-r="build">not built</p></div>
+        <div class="stat"><p class="stat-k mono">Pulls to refresh</p><p class="stat-v" data-r="pulls">0</p></div>
+        <div class="stat"><p class="stat-k mono">Posts scrolled past</p><p class="stat-v" data-r="seen">0</p></div>
+        <div class="stat"><p class="stat-k mono">Autoplay</p><p class="stat-v" data-r="autoplay">never came up</p></div>
+        <div class="stat"><p class="stat-k mono">Events logged</p><p class="stat-v" data-r="events">0</p></div>
+      </div>
+      <figure class="trail">
+        <div class="trail-map" data-trail>
+          <svg data-trail-svg preserveAspectRatio="none"></svg>
+          <div class="trail-labels" data-trail-labels></div>
+        </div>
+        <figcaption class="mono small">Your cursor's path down the page, the view session-replay tools sell to companies.</figcaption>
+      </figure>
+    </div>
+
+    <div class="tactics">
+      <p class="kicker mono">What was done to you</p>
+      <ol class="tactic-list">
+        <li><span class="t-what">Tiles that came to your cursor</span><span class="t-name">Novelty and play. Interactivity pulls people into "flow", a state that predicts more browsing and buying.</span><span class="t-src mono">Novak, Hoffman &amp; Yung 2000</span></li>
+        <li><span class="t-what">A page judged in 50 ms</span><span class="t-name">First impressions. Visual appeal is decided almost instantly, and looks bleed into how usable a thing seems.</span><span class="t-src mono">Lindgaard et al. 2006 · Tractinsky et al. 2000</span></li>
+        <li><span class="t-what">An icon you built</span><span class="t-name">The IKEA effect. People value what they assemble, which is why configurators and onboarding quizzes exist.</span><span class="t-src mono">Norton, Mochon &amp; Ariely 2012</span></li>
+        <li><span class="t-what">A feed you pulled and pulled</span><span class="t-name">Variable reward. Unpredictable payoffs keep the checking going; the feed never gives you a place to stop.</span><span class="t-src mono">Haynes 2018 · Rixen et al. 2023</span></li>
+        <li><span class="t-what">A Continue button that counted down</span><span class="t-name">Autoplay. Doing nothing becomes a choice to continue. Turning Netflix autoplay off cut sessions by about 18 minutes.</span><span class="t-src mono">Schaffner &amp; Chetty 2025</span></li>
+        <li><span class="t-what">The session clock in the corner</span><span class="t-name">Measurement. Engagement only counts as profit if someone records it.</span><span class="t-src mono">This page</span></li>
+      </ol>
+    </div>
+
+    <div class="quiz" id="quiz">
+      <p class="kicker mono">One more test · no scrolling up</p>
+      <div class="q" data-q="plain">
+        <p class="q-text">In 2004, how long did office workers stay on one screen before switching?</p>
+        <div class="q-opts">
+          <button class="opt" data-a="0">47 seconds</button>
+          <button class="opt" data-a="0">75 seconds</button>
+          <button class="opt" data-a="1">About two and a half minutes</button>
+          <button class="opt" data-a="0">Ten minutes</button>
+        </div>
+      </div>
+      <div class="q" data-q="toy">
+        <p class="q-text">How long did the flash test show each page?</p>
+        <div class="q-opts">
+          <button class="opt" data-a="0">5 ms</button>
+          <button class="opt" data-a="1">50 ms</button>
+          <button class="opt" data-a="0">500 ms</button>
+          <button class="opt" data-a="0">One second</button>
+        </div>
+      </div>
+      <p class="quiz-result" data-quiz-result hidden></p>
+    </div>
+  </section>
+
+  <!-- ============ PART II ============ -->
+  <div class="calm-zone" id="calm" data-scene="off">
+
+  <section class="part-intro calm-intro" data-chapter="II" data-title="Part II · The page stops performing">
+    <p class="kicker mono">Part II</p>
+    <h2 class="display">The page stops performing</h2>
+    <p class="annotation right">From here on there is no smooth scroll, no physics and no tricks. Read at your own pace. The only things that move are the ones that explain something.</p>
+  </section>
+
+  <article class="essay">
+
+    <section class="essay-sec" id="earns" data-chapter="05" data-title="What it earns">
+      <p class="kicker mono">05 · The company</p>
+      <h2 class="essay-h">What it earns</h2>
+      <p>Highly interactive sites do pay, in specific ways. They win attention in the first fraction of a second: people judge a page's visual appeal in about 50 milliseconds, and those snap judgements agree closely with what they decide after a longer look (Lindgaard et al., 2006). Appeal then leaks into everything else. In a classic ATM study, the better-looking interface was rated easier to use, even after people had used it and found it no easier (Tractinsky et al., 2000).</p>
+      <p>Play also holds people. Marketing researchers modelled the "flow" state online and found that interactivity and the feeling of being somewhere feed it, and flow relates to more browsing and shopping (Novak, Hoffman &amp; Yung, 2000). Letting people build or configure something makes them value it more (Norton, Mochon &amp; Ariely, 2012).</p>
+      <p>For a studio, the site is the sales pitch. Lusion's stated aim for its own award-winning site was to "showcase our digital craftsmanship" and "engage potential brand and agency partners". Bruno Simon's drivable 3D portfolio drew more than 400,000 visitors and won Awwwards Site of the Year in 2020. For a store, the numbers that get quoted come mostly from the companies selling the technology. The best independent study found that letting shoppers try products in augmented reality raised sales mainly where they were unsure, for unfamiliar brands and expensive items (Tan, Chandukala &amp; Reddy, 2022). Interactivity paid when it answered a question.</p>
+
+      <div class="ledger" id="ledger">
+        <div class="ledger-head">
+          <p class="mono small">The evidence, sorted by how much it can bear</p>
+          <div class="chips" role="group" aria-label="Filter evidence">
+            <button class="chip on" data-filter="all">All</button>
+            <button class="chip" data-filter="test">Controlled test</button>
+            <button class="chip" data-filter="peer">Peer-reviewed</button>
+            <button class="chip" data-filter="company">Company-reported</button>
+            <button class="chip" data-filter="survey">Opinion survey</button>
+          </div>
+        </div>
+        <ul class="ledger-list">
+          <li data-kind="peer" data-side="for"><span class="l-num">AR</span><span class="l-claim">On a cosmetics retailer's app, using AR went with higher sales, most of all for lesser-known brands, pricier products and first-time buyers.</span><span class="l-why mono">Peer-reviewed, real sales data · Tan, Chandukala &amp; Reddy 2022 · pays where shoppers are unsure</span></li>
+          <li data-kind="company" data-side="for"><span class="l-num">+27%</span><span class="l-claim">Rebecca Minkoff shoppers who used a 3D model were 27% more likely to order, and AR viewers 65% more likely to buy.</span><span class="l-why mono">Company-reported · people who spin a model were already keener</span></li>
+          <li data-kind="company" data-side="for"><span class="l-num">+94%</span><span class="l-claim">Shopify says merchants using 3D report a 94% average increase in conversions over photos alone.</span><span class="l-why mono">Platform marketing · no method published</span></li>
+          <li data-kind="survey" data-side="for"><span class="l-num">70 vs 36</span><span class="l-claim">70% of marketers using interactive content rated it good at converting, against 36% for passive content.</span><span class="l-why mono">Opinion survey · often misquoted as a conversion rate</span></li>
+          <li data-kind="peer" data-side="for"><span class="l-num">50 ms</span><span class="l-claim">Visual appeal is judged in 50 ms, and those judgements hold up after longer viewing.</span><span class="l-why mono">Peer-reviewed lab study · Lindgaard et al. 2006</span></li>
+          <li data-kind="peer" data-side="for"><span class="l-num">IKEA</span><span class="l-claim">People valued their own amateur creations nearly as highly as experts' work.</span><span class="l-why mono">Peer-reviewed experiments · Norton et al. 2012</span></li>
+          <li data-kind="test" data-side="against"><span class="l-num">+8%</span><span class="l-claim">Vodafone made its landing page load 31% faster (LCP) and sold 8% more, in a 50/50 A/B test.</span><span class="l-why mono">Controlled test · web.dev 2021</span></li>
+          <li data-kind="company" data-side="against"><span class="l-num">0.1 s</span><span class="l-claim">A 0.1 second faster mobile site went with 8.4% more retail conversions and 9.2% higher order values.</span><span class="l-why mono">Commissioned study · Deloitte for Google 2020 · correlational</span></li>
+          <li data-kind="peer" data-side="against"><span class="l-num">Recall</span><span class="l-claim">Interactive tools raised memory of what they carried and lowered memory of everything beside them. A moderate level worked best.</span><span class="l-why mono">Peer-reviewed experiment · Xu &amp; Sundar 2016</span></li>
+          <li data-kind="peer" data-side="against"><span class="l-num">Details</span><span class="l-claim">Entertaining but irrelevant extras lowered understanding of the main lesson.</span><span class="l-why mono">Peer-reviewed experiments · Harp &amp; Mayer 1998</span></li>
+        </ul>
+        <p class="ledger-note mono small">Marked <span class="side-tag for">earns</span> or <span class="side-tag against">costs</span>. Notice where the strongest evidence sits.</p>
+      </div>
+    </section>
+
+    <section class="essay-sec" id="costs" data-chapter="06" data-title="What it costs the company">
+      <p class="kicker mono">06 · The bill</p>
+      <h2 class="essay-h">What it costs the company</h2>
+      <p>Every effect has weight, and weight costs sales. The cleanest causal number in this whole study is Vodafone's: the same landing page, half the traffic each, one version 31% faster to show its main content. The fast one sold 8% more (web.dev, 2021). Google's earlier research found that 53% of mobile visits are abandoned when a page takes longer than three seconds, and that going from one second to three raises the probability of a bounce by 32%.</p>
+      <p>Pages keep getting heavier anyway. The median mobile page shipped 558 KB of JavaScript in 2024, up 14% in a year, and almost half of it was never used (HTTP Archive, 2024). Award-style sites sit far above the median. So does this one.</p>
+
+      <div class="weight" id="weight">
+        <div class="weight-head">
+          <p class="mono small">This page, measured in your browser just now</p>
+          <p class="weight-total"><span data-w-total>…</span></p>
+        </div>
+        <div class="weight-bars" data-w-bars></div>
+        <p class="mono small dim" data-w-note></p>
+      </div>
+
+      <p>The subtler cost is memory. When Penn State researchers gave an e-commerce site more and more interactive tools, people remembered more of what the tools showed and less of everything else, and they spent less total time on the most interactive version than on a moderate one (Xu &amp; Sundar, 2016). That is the quiz you just took. Educational psychologists call the same pattern "seductive details": interesting extras that crowd out the point (Harp &amp; Mayer, 1998).</p>
+    </section>
+
+    <section class="essay-sec" id="takes" data-chapter="07" data-title="What it takes from you">
+      <p class="kicker mono">07 · The person</p>
+      <h2 class="essay-h">What it takes from you</h2>
+      <p>Gloria Mark has timed how long people stay on one screen before switching for two decades. The averages keep falling.</p>
+
+      <figure class="bars" id="attn-chart">
+        <figcaption class="mono small">Average time on one screen before switching, in seconds</figcaption>
+        <div class="bars-plot" role="img" aria-label="About 150 seconds in 2004, 75 seconds around 2012, 47 seconds in recent studies.">
+          <div class="bar" style="--v:150" data-tip="2004 · about 2.5 minutes · 14 information workers, one organisation"><span class="bar-fill"></span><span class="bar-val mono">150 s</span><span class="bar-lab mono">2004</span></div>
+          <div class="bar" style="--v:75" data-tip="Around 2012 · about 75 seconds"><span class="bar-fill"></span><span class="bar-val mono">75 s</span><span class="bar-lab mono">~2012</span></div>
+          <div class="bar" style="--v:47" data-tip="Recent studies · about 47 seconds"><span class="bar-fill"></span><span class="bar-val mono">47 s</span><span class="bar-lab mono">Recent</span></div>
+        </div>
+        <p class="mono small dim">Source: Mark (2023). This measures switching at work, not a biological limit. The "goldfish attention span" statistic is a myth.</p>
+      </figure>
+
+      <p>Some of that switching is designed. Infinite scroll removes the natural place to stop, and its inventor, Aza Raskin, has said publicly that he regrets what it became. A field study of 46 people found that scrolling runs in loops within loops, and that most of the reasons people finally stop come from their lives, not from the app (Rixen et al., 2023). Autoplay works the same way. When 76 heavy Netflix users turned it off, their sessions got about 18 minutes shorter (Schaffner &amp; Chetty, 2025).</p>
+      <p>Underneath is a reward system that responds most to surprises. Dopamine signalling spikes for unexpected rewards, and the response shifts to whatever predicts them: the pull, the badge, the buzz (Haynes, 2018). And people are poor judges of their own use. A meta-analysis of 106 comparisons found that under 10% of self-reports landed within 5% of logged reality (Parry et al., 2021).</p>
+      <p>Motion has a physical cost too. In a national balance test, 35% of US adults over 40 showed signs of vestibular dysfunction (Agrawal et al., 2009), and parallax and large motion on screen can trigger dizziness and nausea in people with vestibular disorders. The web standard for it is WCAG 2.3.3, which asks that motion triggered by interaction can be turned off. That is what the Calm mode button at the top of this page does, and it switches on by itself if your device asks for reduced motion.</p>
+      <p class="aside mono">A caution on one famous study: the claim that a phone on your desk drains your thinking even when it is off (Ward et al., 2017) failed a preregistered replication (Ruiz Pardo &amp; Minda, 2022). Not every scary statistic survives.</p>
+    </section>
+
+    <section class="essay-sec" id="curve" data-chapter="08" data-title="Where the curve bends">
+      <p class="kicker mono">08 · Synthesis</p>
+      <h2 class="essay-h">Where the curve bends</h2>
+      <p>Put the findings together and a shape appears. The first bits of interactivity earn a lot: attention, trust, memory for the thing being shown. Each extra bit earns less, while its costs (weight, distraction, motion, time the user did not mean to spend) keep climbing. Drag the slider to move along it.</p>
+
+      <figure class="curve-fig">
+        <div class="curve-legend mono small">
+          <span><i style="--c:var(--s1)"></i>Attention captured</span>
+          <span><i style="--c:var(--s2)"></i>What people understand</span>
+          <span><i style="--c:var(--s3)"></i>Sales, after the speed cost</span>
+        </div>
+        <div class="curve-plot" data-curve></div>
+        <label class="curve-ctrl">
+          <span class="mono small">Interactivity</span>
+          <input type="range" min="0" max="100" value="35" data-curve-range aria-label="Level of interactivity">
+          <output class="mono small" data-curve-out></output>
+        </label>
+        <p class="curve-read" data-curve-read></p>
+        <p class="mono small dim">A conceptual model drawn from the studies above, not measured data. The shapes follow the evidence: attention keeps rising and flattens; understanding peaks at a moderate level (Xu &amp; Sundar, 2016); sales fall once weight slows the page (Vodafone, Deloitte).</p>
+        <details class="mono small"><summary>Show as a table</summary><table data-curve-table></table></details>
+      </figure>
+
+      <p class="thesis">Interactivity pays when it carries the message and costs when it competes with it. Past that point, the same techniques spend the user's time, attention and comfort to buy numbers, like time on site, that do not reliably turn into profit.</p>
+    </section>
+
+    <section class="essay-sec" id="purpose" data-chapter="09" data-title="On purpose">
+      <p class="kicker mono">09 · What to do with it</p>
+      <h2 class="essay-h">Interactivity, on purpose</h2>
+      <ol class="principles">
+        <li><b>Make the interaction carry the content.</b> If people only remember what they touch, put the point in the thing they touch.</li>
+        <li><b>Spend a speed budget.</b> Every effect has to earn its kilobytes. Load the shell first and the toy second.</li>
+        <li><b>Honour reduced motion.</b> It is one media query, and a third of older adults may need it.</li>
+        <li><b>Give back the stopping cue.</b> An end to the feed, a pause before the next episode.</li>
+        <li><b>Measure outcomes, not minutes.</b> Time on site is a cost to the person and only sometimes revenue to the company.</li>
+      </ol>
+    </section>
+
+  </article>
+
+  <!-- FINALE: the same tiles, on paper, still -->
+  <section class="scene scene-finale" id="finale" data-scene="finale" data-chapter="10" data-title="Still here" style="--len:190vh">
+    <div class="sticky">
+      <h2 class="finale-title">Still here. Now they only move when you ask.</h2>
+      <p class="hero-hint mono" data-touch="Tap anywhere">Click anywhere</p>
+    </div>
+  </section>
+
+  <section class="sources" id="sources" data-chapter="11" data-title="Sources">
+    <div class="sources-head">
+      <h2 class="display">Sources</h2>
+      <p class="annotation right">Every number on this page, with the kind of evidence behind it in the text above.</p>
+    </div>
+    <ol class="ref-list">
+      <li>Agrawal, Y., Carey, J. P., Della Santina, C. C., Schubert, M. C., &amp; Minor, L. B. (2009). Disorders of balance and vestibular function in US adults. <i>Archives of Internal Medicine, 169</i>(10), 938–944.</li>
+      <li>Deloitte Digital. (2020). <a href="https://www2.deloitte.com/content/dam/Deloitte/ie/Documents/Consulting/Milliseconds_Make_Millions_report.pdf">Milliseconds make millions</a>. Commissioned by Google.</li>
+      <li>Demand Metric. (2016). Interactive vs. passive content survey. <a href="https://uplandsoftware.com/kapost/resources/blog/interactive-content-conversions/">Summary</a>.</li>
+      <li>Google. (2016). The need for mobile speed. <a href="https://www.mediapost.com/publications/article/284398/">Coverage</a>.</li>
+      <li>Harp, S. F., &amp; Mayer, R. E. (1998). How seductive details do their damage. <i>Journal of Educational Psychology, 90</i>(3), 414–434.</li>
+      <li>Haynes, T. (2018). <a href="https://sitn.hms.harvard.edu/flash/2018/dopamine-smartphones-battle-time/">Dopamine, smartphones &amp; you</a>. Harvard Science in the News.</li>
+      <li>HTTP Archive. (2024). <a href="https://almanac.httparchive.org/en/2024/javascript">Web Almanac: JavaScript</a>.</li>
+      <li>Lindgaard, G., Fernandes, G., Dudek, C., &amp; Brown, J. (2006). Attention web designers: You have 50 milliseconds to make a good first impression! <i>Behaviour &amp; Information Technology, 25</i>(2), 115–126.</li>
+      <li>Lusion. (2024). <a href="https://lovethework.com/work-awards/campaigns/lusion-1630885">Lusion v3</a>, Cannes Lions entry.</li>
+      <li>Mark, G. (2023). <i>Attention span.</i> Hanover Square Press. <a href="https://www.universityofcalifornia.edu/news/how-sharpen-your-attention-and-meet-your-goals-2024">Interview</a>.</li>
+      <li>Norton, M. I., Mochon, D., &amp; Ariely, D. (2012). The IKEA effect: When labor leads to love. <i>Journal of Consumer Psychology, 22</i>(3), 453–460.</li>
+      <li>Novak, T. P., Hoffman, D. L., &amp; Yung, Y.-F. (2000). Measuring the customer experience in online environments. <i>Marketing Science, 19</i>(1), 22–42.</li>
+      <li>Parry, D. A., et al. (2021). A systematic review and meta-analysis of discrepancies between logged and self-reported digital media use. <i>Nature Human Behaviour, 5</i>, 1535–1547.</li>
+      <li>Pastel. <a href="https://usepastel.com/blog/how-a-design-portfolio-got-the-attention-of-400-000-visitors">How a design portfolio got the attention of 400,000 visitors</a>.</li>
+      <li>Rixen, J. O., et al. (2023). The loop and ways to break it. <i>MobileHCI '23</i>.</li>
+      <li>Ruiz Pardo, A. C., &amp; Minda, J. P. (2022). Reexamining the "brain drain" effect. <i>Acta Psychologica, 230</i>.</li>
+      <li>Schaffner, B., &amp; Chetty, M. (2025). Netflix autoplay field study, CSCW. <a href="https://news.uchicago.edu/story/uchicago-scientists-study-hidden-cost-netflixs-autoplay">UChicago summary</a>.</li>
+      <li>Shopify. <a href="https://www.shopify.com/case-studies/rebecca-minkoff">Rebecca Minkoff case study</a>; <a href="https://www.shopify.com/blog/3d-model-products">3D model products</a>.</li>
+      <li>Tan, Y.-C., Chandukala, S. R., &amp; Reddy, S. K. (2022). Augmented reality in retail and its impact on sales. <i>Journal of Marketing, 86</i>(1), 48–66.</li>
+      <li>Tractinsky, N., Katz, A. S., &amp; Ikar, D. (2000). What is beautiful is usable. <i>Interacting with Computers, 13</i>(2), 127–145.</li>
+      <li>web.dev. (2021). <a href="https://web.dev/case-studies/vodafone">Vodafone: A 31% improvement in LCP increased sales by 8%</a>.</li>
+      <li>W3C. <a href="https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions">Understanding SC 2.3.3: Animation from interactions</a>.</li>
+      <li>Ward, A. F., Duke, K., Gneezy, A., &amp; Bos, M. W. (2017). Brain drain. <i>Journal of the Association for Consumer Research, 2</i>(2), 140–154.</li>
+      <li>Xu, Q., &amp; Sundar, S. S. (2016). Interactivity and memory. <i>Computers in Human Behavior, 63</i>, 620–629.</li>
+    </ol>
+  </section>
+
+  <footer class="footer">
+    <p class="mono small">Drawn in · 2026</p>
+    <p class="mono small">A study and a paper by Daniel Yerushalmi</p>
+    <p class="mono small">Nothing you did here left this tab</p>
+  </footer>
+
+  </div>
+  </div>
+</main>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
